@@ -18,7 +18,7 @@ class weather_model(nn.Module):
     return output
   
 model = weather_model(input_size=1)
-model.load_state_dict(torch.load("model.pth"))
+model.load_state_dict(torch.load("model_0.pth"))
 model.eval()
 st.title("Dự đoán nhiệt độ dựa trên 5 ngày trước")
 
