@@ -28,6 +28,7 @@ temp_inputs = []
 for i in range(5):
     temp_inputs.append(st.number_input(f"Ngày {i+1}", value=25.0, step=0.1))
 temp_inputs = torch.tensor(temp_inputs, dtype=torch.float32).unsqueeze(1)  # [5, 1]
+temp_inputs = temp_inputs.unsqueeze(0)
 
 
 # Dự đoán khi nhấn nút
