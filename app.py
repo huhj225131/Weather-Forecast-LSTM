@@ -27,9 +27,11 @@ st.write("Nhập nhiệt độ của 5 ngày trước:")
 temp_inputs = []
 for i in range(5):
     temp_inputs.append(st.number_input(f"Ngày {i+1}", value=25.0, step=0.1))
+temp_inputs = torch.tensor(temp_inputs)
+temp_inputs = torch.unsqueeze(temp_inputs, dim= 1)
 
 # Dự đoán khi nhấn nút
 if st.button("Dự đoán nhiệt độ ngày tiếp theo"):
-    input_tensor = torch.tensor([temp_inputs], dtype=torch.float32)
+    input_tensor = torch.tensor(temp_inputs)
     prediction = model(input_tensor).item()
     st.success(f"Nhiệt độ dự đoán: {prediction:.2f}°C")
